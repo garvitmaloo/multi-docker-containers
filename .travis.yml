@@ -13,3 +13,10 @@ after_success:
   - docker build -t nginx-router ./nginx
   - docker build -t express-server ./server
   - docker build -t worker ./worker
+  # Login to the docker CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  # Push the images to Docker Hub
+  - docker push react-client
+  - docker push nginx-router
+  - docker push express-server
+  - docker push worker
