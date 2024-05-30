@@ -9,14 +9,14 @@ script:
   - docker run -e CI=true react-test npm test
 
 after_success:
-  - docker build -t react-client ./client
-  - docker build -t nginx-router ./nginx
-  - docker build -t express-server ./server
-  - docker build -t worker ./worker
+  - docker build -t garvitmaloo21/react-client ./client
+  - docker build -t garvitmaloo21/nginx-router ./nginx
+  - docker build -t garvitmaloo21/express-server ./server
+  - docker build -t garvitmaloo21/worker ./worker
   # Login to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Push the images to Docker Hub
-  - docker push react-client
-  - docker push nginx-router
-  - docker push express-server
-  - docker push worker
+  - docker push garvitmaloo21/react-client
+  - docker push garvitmaloo21/nginx-router
+  - docker push garvitmaloo21/express-server
+  - docker push garvitmaloo21/worker
